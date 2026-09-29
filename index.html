@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>clipfarm</title>
+<meta name="description" content="Self-hosted software that turns long video you own into vertical clips, and posts the ones you approve.">
+<style>
+:root{--bg:#fbfaf7;--fg:#1c1a16;--dim:#6b6558;--line:#e6e2d8;--accent:#8a6a06;--mark:#f5c518;--code:#f1eee5}
+@media (prefers-color-scheme:dark){:root{--bg:#14130f;--fg:#ece9e1;--dim:#9b9484;--line:#2c2a22;--accent:#f5c518;--code:#222018}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:700px;margin:0 auto;padding:64px 20px 100px}
+.mark{display:flex;align-items:center;gap:12px;margin-bottom:38px}
+.glyph{width:34px;height:34px;border-radius:9px;background:var(--fg);position:relative;flex:0 0 34px}
+.glyph::after{content:"";position:absolute;left:50%;top:15%;transform:translateX(-50%);width:30%;height:70%;border-radius:3px;background:var(--mark)}
+.wordmark{font-weight:700;font-size:18px;letter-spacing:-.01em}
+h1{font-size:clamp(30px,6vw,42px);line-height:1.12;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
+.lede{font-size:19px;color:var(--dim);margin:0 0 34px}
+h2{font-size:19px;letter-spacing:-.015em;margin:38px 0 10px}
+p{margin:0 0 14px}
+ul{margin:0 0 14px;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+code{background:var(--code);padding:2px 6px;border-radius:5px;font:500 14px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+a{color:var(--accent)}
+.rule{height:2px;background:var(--mark);margin:0 0 30px}
+.links{display:flex;gap:18px;flex-wrap:wrap;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:15px}
+</style></head><body>
+<div class="wrap">
+  <div class="mark"><div class="glyph"></div><div class="wordmark">clipfarm</div></div>
+  <h1>Clips you approve, from video you own.</h1>
+  <p class="lede">Self-hosted software that turns long-form video into short vertical clips
+  with burned-in captions — then posts the ones you approve to your own accounts.</p>
+  <div class="rule"></div>
+
+  <h2>How it works</h2>
+  <ul>
+    <li>Point it at footage you own or are licensed to cut. Provenance is recorded per file.</li>
+    <li>It transcribes locally, finds self-contained moments, reframes to 9:16 tracking the
+      speaker, and burns word-synced captions.</li>
+    <li>Every clip runs nine compliance checks — duration, aspect, watermark, loudness,
+      sharpness and duplicate detection — before you ever see it.</li>
+    <li>You approve each clip by hand. Nothing publishes on its own.</li>
+  </ul>
+
+  <h2>Where your data lives</h2>
+  <p>On your machine. There is no clipfarm server and no clipfarm account: video, transcripts,
+  tokens and metadata stay in local files and a local database. Access tokens sit in a
+  <code>.env</code> file with permissions 0600 and are used only to call the platform's API
+  from your own computer.</p>
+
+  <h2>TikTok integration</h2>
+  <p>clipfarm uses Login Kit so you can authorise your own account, and the Content Posting
+  API to send an approved clip to your TikTok drafts — or, once approved for direct posting,
+  straight to your profile. It requests no scopes for reading your content, followers,
+  messages or analytics.</p>
+
+  <div class="links">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</div></body></html>

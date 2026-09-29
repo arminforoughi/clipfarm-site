@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>clipfarm — Privacy Policy</title>
+<style>
+:root{--bg:#fff;--fg:#1a1c22;--dim:#5b6270;--line:#e4e7ec}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1115;--fg:#e6e8ee;--dim:#98a0b0;--line:#252932}}
+body{background:var(--bg);color:var(--fg);margin:0;padding:48px 20px 90px;
+ font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+main{max-width:720px;margin:0 auto}
+h1{font-size:28px;letter-spacing:-.02em;margin:0 0 6px}
+h2{font-size:17px;margin:34px 0 8px}
+.meta{color:var(--dim);font-size:14px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.dim{color:var(--dim)}
+code{background:rgba(127,127,127,.14);padding:1px 5px;border-radius:4px;font-size:14px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--dim)}
+</style></head><body><main>
+<h1>clipfarm — Privacy Policy</h1>
+<div class="meta">Last updated 19 September 2026</div>
+
+<h2>The short version</h2>
+<p>clipfarm runs entirely on your own computer. It has no server, no user accounts and no
+analytics. We — the authors — receive nothing: not your video, not your captions, not your
+tokens, not usage data. There is no backend to send it to.</p>
+
+<h2>What is stored, and where</h2>
+<table>
+<tr><th>Data</th><th>Where it lives</th><th>Sent to us?</th></tr>
+<tr><td>Your source video and rendered clips</td><td>Your local disk</td><td>No</td></tr>
+<tr><td>Transcripts and captions</td><td>Your local disk</td><td>No</td></tr>
+<tr><td>TikTok access token</td><td>A local <code>.env</code> file, permissions 0600</td><td>No</td></tr>
+<tr><td>Your TikTok handle</td><td>A local SQLite database</td><td>No</td></tr>
+<tr><td>Campaign and clip metadata</td><td>A local SQLite database</td><td>No</td></tr>
+</table>
+
+<h2>TikTok data</h2>
+<p>With your authorisation, clipfarm requests <code>user.info.basic</code> to confirm which
+account you are posting to, and <code>video.upload</code> / <code>video.publish</code> to
+send clips you have approved. The access token is stored locally and used only to call
+TikTok's API from your machine. We never see it. You can revoke access at any time in your
+TikTok settings, and delete the token by removing it from your <code>.env</code> file.</p>
+<p>clipfarm does not read your TikTok content, followers, messages or analytics, and does
+not request scopes for any of those.</p>
+
+<h2>Optional AI review</h2>
+<p>If — and only if — you supply an API key for a third-party model provider, clipfarm sends
+that provider the clip's transcript and a small number of sampled still frames so it can
+score the clip before you publish it. This is off by default. The provider's own privacy
+policy governs that data. Remove the key and the feature stops.</p>
+
+<h2>Children</h2>
+<p>clipfarm is a production tool for content creators and is not directed at children.</p>
+
+<h2>Your control</h2>
+<p>Because everything is local, deleting your data means deleting the files: the
+<code>storage/</code> folder and the <code>.env</code> file. Nothing survives elsewhere.</p>
+
+<p class="dim" style="margin-top:36px;font-size:14px">This document describes software that
+runs entirely on the operator's own machine. It is not legal advice.</p>
+</main></body></html>
