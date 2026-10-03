@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>clipfarm — Data Deletion</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1c1a16;--dim:#6b6558;--line:#e6e2d8;--accent:#8a6a06;--mark:#f5c518;--code:#f1eee5}
+@media (prefers-color-scheme:dark){:root{--bg:#14130f;--fg:#ece9e1;--dim:#9b9484;--line:#2c2a22;--accent:#f5c518;--code:#222018}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:700px;margin:0 auto;padding:60px 20px 100px}
+h1{font-size:clamp(28px,5vw,36px);letter-spacing:-.025em;margin:0 0 8px}
+.meta{color:var(--dim);font-size:14px;padding-bottom:22px;border-bottom:2px solid var(--mark);margin-bottom:26px}
+h2{font-size:18px;margin:32px 0 8px}
+p,li{margin:0 0 13px}
+ul{padding-left:22px}
+code{background:var(--code);padding:2px 6px;border-radius:5px;font:500 14px/1 ui-monospace,Menlo,monospace}
+a{color:var(--accent)}
+</style></head><body><div class="wrap">
+<h1>Data Deletion</h1>
+<div class="meta">clipfarm — last updated 3 October 2026</div>
+
+<h2>There is no server to delete data from</h2>
+<p>clipfarm runs entirely on the operator's own computer. It has no backend, no
+hosted database and no user accounts. We never receive your video, captions,
+tokens or usage data, so there is nothing held on our side to erase.</p>
+
+<h2>Revoking access to your Instagram account</h2>
+<p>If you connected an Instagram account to clipfarm, you can revoke it at any
+time from Instagram itself:</p>
+<ul>
+  <li>Instagram app → <b>Settings and privacy</b> → <b>Website permissions</b> →
+      <b>Apps and websites</b> → remove clipfarm.</li>
+</ul>
+<p>Revoking immediately invalidates the access token. clipfarm can no longer
+read your profile or publish on your behalf.</p>
+
+<h2>Deleting the data held locally</h2>
+<p>Everything clipfarm stores lives in two places on the operator's machine.
+Deleting them removes all of it permanently:</p>
+<ul>
+  <li><code>.env</code> — access and refresh tokens</li>
+  <li><code>storage/</code> — the local database, rendered clips, transcripts
+      and thumbnails</li>
+</ul>
+
+<h2>Requesting deletion</h2>
+<p>Because no data leaves the operator's machine, there is no remote request to
+make. If you believe an operator holds content of yours and you want it removed,
+contact the operator of that installation directly; they control the files.</p>
+
+<p style="color:var(--dim);font-size:14px;margin-top:38px;padding-top:20px;border-top:1px solid var(--line)">
+This describes software that runs entirely on the operator's own machine. It is
+not legal advice.</p>
+</div></body></html>
